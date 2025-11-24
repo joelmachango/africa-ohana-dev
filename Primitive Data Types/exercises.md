@@ -1,2 +1,6 @@
 - Store your salary of 101.56 in a variable and print it on screen.
-- 
+- Store your age in a variable and print it on screen.
+- I need a variable to store "**hello Hola Too My Session!**".
+  - Manipulate the string to have at the end the following text instead stored in the variable and print it. '**Hello to Code With Sally session.**"
+- Create a boolean variableand use a comparison operator to set its value to either true or false and print it.
+- Using date methods, print what is the date in 3 months from today.
