@@ -1,0 +1,2 @@
+- Store your salary of 101.56 in a variable and print it on screen.
+- 
