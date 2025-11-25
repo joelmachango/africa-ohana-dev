@@ -1,0 +1,8 @@
+Integer randomNumber = 0;
+
+while (randomNumber != 5) { // 2. Condition
+    randomNumber = Integer.valueOf(Math.floor(Math.random() * 10));
+    
+    System.debug('Random number generated: '+randomNumber + ' is not 5, trying again.');
+}
+System.debug('Generated the number 5, existing the loop.');

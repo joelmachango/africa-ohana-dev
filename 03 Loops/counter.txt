@@ -1,0 +1,12 @@
+// I want to print numbers from 0 to 5
+// 1. Initialization variable
+Integer counter = 0;
+
+while (counter <= 5) { // 2. Condition
+    // 3. Body: Code to run When condition is True
+    System.debug('Counter Value: '+counter);
+
+    // 4. Update variable
+    counter = counter+1;
+}
+System.debug('Outside Loop');
