@@ -3,3 +3,7 @@ List<String> fruits = new List<String>{'Apple', 'Banana', 'Cherry'};
 for (String fruit: fruits){
     System.debug('Fruit: '+fruit);
 }
+
+for (Integer i=0; i<fruits.size(); i++){
+    System.debug('Fruit: '+i +' ' + +fruits[i]);
+}
