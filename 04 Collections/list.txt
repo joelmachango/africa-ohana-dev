@@ -1,0 +1,15 @@
+List<Decimal> lstSalaries = new List<Decimal>();
+System.debug('Initial lstSalaries: '+lstSalaries);
+
+// Add items
+lstSalaries.add(10000000);
+System.debug('New value oflstSalaries: '+lstSalaries);
+
+lstSalaries.add(10000000);
+lstSalaries.add(30000000);
+lstSalaries.add(20000000);
+System.debug('New value oflstSalaries: '+lstSalaries);
+
+// Retrieve
+Decimal output = lstSalaries.get(2);
+System.debug('output: '+output);
