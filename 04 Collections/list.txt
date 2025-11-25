@@ -1,4 +1,4 @@
-List<Decimal> lstSalaries = new List<Decimal>();
+List<Decimal> lstSalaries = new List<Decimal>(); // [ Must be initialized with a value ]
 System.debug('Initial lstSalaries: '+lstSalaries);
 
 // Add items
