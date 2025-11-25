@@ -1,0 +1,4 @@
+- Create a while loop that prints numbers from 1 to 10
+- Use a traditional for loop to iterate through numbers 1 to 20 and Print it. Use the break statement to exit the loop when the loop variable is equal to 15.
+- Iterate over a list of strings representing names, and use the continue statement to skip names that start with the letter 'A'.
+- Generate a 10 * 100 Multiplication Table with Nested Loops
