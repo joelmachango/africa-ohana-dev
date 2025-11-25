@@ -1,0 +1,8 @@
+// Print numbers from 0 to 5
+//for(Initialize; condition; increment){
+    // code when condition is true
+//}
+
+for(Integer i=0; i<6; i++){
+    System.debug('Number value: '+i);
+}
