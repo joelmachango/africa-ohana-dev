@@ -1,0 +1,6 @@
+- write Apex code to check if a persons abge is 18 or older.
+  - If it is, print "You are an adult."
+- Given the temperature, write Apex code to determine if it's hot outside (temperature > 30). If it is, print "It's hot outside." Otherwise, print, "It's not too hot."
+- Use the ternary operator to evaluate a score. If the score is greater than or equal to 60, assign "Pass" to the result variable; otherwise, assign "Fail." Print the result.
+- Based on the day variable (1 for Sunday, 2 for Monday, etc.), write Apex code to determine the day of the week and assign it to the dayName variable. Use if-else statements to handle different days. Print the Day name at the end.
+- Given a fruit variable with different fruit names, use a switch statement to determine the color of the fruit. Handle the cases for 'Apple,' 'Banana,' and 'Orange,' If the fruit is not recognized, assign '"Unknown to the color variable.
