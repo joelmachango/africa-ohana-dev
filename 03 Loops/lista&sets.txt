@@ -1,0 +1,3 @@
+- List are ordered collection of elements
+- Sets are collection of unique elements.
+
