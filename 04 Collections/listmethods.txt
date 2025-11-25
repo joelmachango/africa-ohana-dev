@@ -1,0 +1,16 @@
+List<Integer> lstScores = new List<Integer> {4, 1, 22, 10, 5};
+System.debug('List Before Sorting: '+lstScores);
+System.debug('Index 0 Before Sorting: '+lstScores[0]);
+
+lstScores.sort();
+System.debug('List After Sorting: '+lstScores);
+System.debug('Index 0 After Sorting: '+lstScores[0]);
+
+//size
+System.debug('Size of List: '+lstScores.size());
+
+//isEmpty
+System.debug('is List sEmpty: '+lstScores.isEmpty());
+
+//contains
+System.debug('Contains 5: '+lstScores.contains(5));
