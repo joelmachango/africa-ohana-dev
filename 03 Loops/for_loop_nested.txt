@@ -1,0 +1,8 @@
+// Nested for Loop 5 * 5
+for (Integer i=1; i<=5; i++) {
+    String row = '';
+    for (Integer j = 1; j<=5; j++){ // 1*1 1*2 1*3
+        row += String.valueof(i*j)+' ';
+    }
+    System.debug('Row of # '+i+' : '+row);
+}
