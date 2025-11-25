@@ -1,0 +1,7 @@
+Integer numberValue = 11;
+
+if(Math.mod(numberValue, 2) == 0) {
+    System.debug('Even Number');
+} else {
+    System.debug('Odd Number');
+}
