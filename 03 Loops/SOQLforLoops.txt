@@ -1,0 +1,35 @@
+// SOQL for loops
+
+for (Account acc: [SELECT Id, Name FROM Account LIMIT 10]){
+    System.debug('Account ID: ' +acc.Id + ', Name: ' +acc.Name);
+}
+
+List<Account> lstAccounts=[SELECT Id, Name FROM Account LIMIT 10];
+for(Account accountObj: lstAccounts){
+    System.debug('Account ID: ' +accountObj.Id + ', Name: ' +accountObj.Name);
+}
+
+1. SOQL For Loop (Preferred)
+Apex
+
+for (Account acc: [SELECT Id, Name FROM Account LIMIT 10000]){
+    // Process each account here
+}
+Why it's Preferred (Governor Limits):
+
+Governor Limit Avoidance: The SOQL For Loop processes records in batches of 200 (or sometimes a different size, depending on the context). This means it retrieves 200 records, processes them, then retrieves the next 200, and so on.
+
+Memory Efficiency: Since only 200 records (or one batch) are held in memory at any given time, it efficiently handles large query results (up to 50,000 records total) without hitting the heap size limit (memory limit).
+
+2. Standard List Loop (Less Preferred for Large Queries)
+Apex
+
+List<Account> lstAccounts = [SELECT Id, Name FROM Account LIMIT 10000];
+for (Account accountObj: lstAccounts){
+    // Process each account here
+}
+Why it's Less Preferred:
+
+Single Memory Load: This approach requires the entire result set to be loaded into a single List<Account> variable in memory before the loop even starts.
+
+Heap Size Risk: If the query returns thousands of records, loading them all into memory simultaneously significantly increases the risk of hitting the heap size limit for memory consumption, causing the transaction to fail.

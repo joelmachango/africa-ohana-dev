@@ -1,0 +1,5 @@
+Set<Integer> numbers = new Set<Integer>{1, 2, 3, 4, 5};
+    
+for (Integer numberVal: numbers) {
+    System.debug('Number: ' +numberVal);
+}
