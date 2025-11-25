@@ -1,0 +1,12 @@
+List<Integer> lstScores = new List<Integer>{4,1,22,10,5};
+
+// For each (Enhanced For Loop)
+for(Integer scoreValue: lstScores) {
+    System.debug('For each scoreValue: ' +scoreValue);
+}
+
+
+// Traditional Loop
+for(Integer i=0; i<lstScores.size(); i++){ 
+    System.debug('Traditional for loop: '+lstScores[i]);
+}
