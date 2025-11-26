@@ -1,8 +1,8 @@
 /**
- * IterationControlExercises
+ * LoopsExercises
  * while loops, for loops, and loop control statements (break/continue).
  */
-public class IterationControlExercises {
+public class LoopsExercises {
 
     public static void runAllExercises() {
         System.debug('======================================');

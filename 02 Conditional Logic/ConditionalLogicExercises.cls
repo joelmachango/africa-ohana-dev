@@ -1,8 +1,8 @@
 /**
- * ControlFlowExercises
+ * ConditionalLogicExcercises
  * conditional logic (if/else), the ternary operator, and switch statements.
  */
-public class ControlFlowExercises {
+public class ConditionalLogicExcercises {
 
     public static void runAllExercises() {
         System.debug('======================================');
