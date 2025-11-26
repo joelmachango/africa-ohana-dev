@@ -5,10 +5,6 @@
 public class LoopsExercises {
 
     public static void runAllExercises() {
-        System.debug('======================================');
-        System.debug('STARTING APEX ITERATION EXERCISES');
-        System.debug('======================================');
-
         // -----------------------------------------------------------------
         // 1. While Loop: Print numbers from 1 to 10
         // -----------------------------------------------------------------
@@ -90,9 +86,5 @@ public class LoopsExercises {
             // Note: The resulting debug line will be very long (approx 400 characters)
             System.debug('Row ' + i + ': ' + rowOutput);
         }
-        
-        System.debug('======================================');
-        System.debug('EXERCISES COMPLETE');
-        System.debug('======================================');
     }
 }

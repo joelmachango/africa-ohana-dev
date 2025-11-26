@@ -5,10 +5,6 @@
 public class ConditionalLogicExcercises {
 
     public static void runAllExercises() {
-        System.debug('======================================');
-        System.debug('STARTING APEX CONTROL FLOW EXERCISES');
-        System.debug('======================================');
-
         // -----------------------------------------------------------------
         // 1. Check Age (If Statement)
         // -----------------------------------------------------------------
@@ -119,10 +115,6 @@ public class ConditionalLogicExcercises {
             }
         }
         
-        System.debug('Color: ' + color);
-        
-        System.debug('======================================');
-        System.debug('EXERCISES COMPLETE');
-        System.debug('======================================');
+        System.debug('Color: ' + color);    
     }
 }
