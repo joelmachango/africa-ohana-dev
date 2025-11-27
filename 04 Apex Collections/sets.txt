@@ -1,0 +1,53 @@
+List<String> lstItems = new List<String>{'Cheese', 'Chicken Soup', 'Chicken Soup', 'Chicken Soup', 'Pizza', 'Pizza', 'Bread', 'Chicken'};
+System.debug('Check listItems '+lstItems);
+
+Set<String> lstItemsSet = new Set<String> (lstItems);
+System.debug('Check listItems SET '+lstItemsSet);
+
+Set<Decimal> setMarks = new Set<Decimal> {23, 76.5};
+setMarks.add(100);
+setMarks.add(66);
+
+Set<Decimal> setMarks2 = new Set<Decimal> {25, 66, 100, 5};
+setMarks.addAll(setMarks2);
+System.debug('Check Marks '+setMarks);
+
+Set<Integer> setScores = new Set<Integer>{20, 11, 9};
+System.debug('Set Contains 25 '+setScores.contains(25));
+System.debug('Set Contains 11 '+setScores.contains(11));
+
+Set<Integer> setScores1 = new Set<Integer>();
+System.debug('Check Empty1 '+setScores1.isEmpty());
+setScores1.add(55);
+System.debug('Check Empty2 '+setScores1.isEmpty());
+
+Set<Integer> setScores2 = new Set<Integer>{20, 11, 15};
+System.debug('Check Set Size1 '+setScores2.size());
+    
+// Add duplicate values
+setScores2.add(20);
+System.debug('Check Set Size2 '+setScores2.size());
+
+// Add new value to Set
+setScores2.add(55);
+System.debug('Check Set Size3 '+setScores2.size());
+
+// Init a set of String and values to it
+Set<String> setFruitNames = new Set<String>{'Orange', 'Watermellon', 'Cherry'};
+    
+// Loop over the Set of Strings for the fruit names
+// Enhanced for loop(for each)
+for(String strFruitName: setFruitNames){
+    System.debug('Fruit Name Set Example: '+strFruitName);
+}
+
+//Traditional Loop
+//for(Integer i=0; i<setFruitNames.size(); i++){
+//    System.debug('Traditional Fruit Name Set Example: '+setFruitNames[i]);
+//}
+
+//Traditional Loop
+List<String> listFriutNames = new List<String> {'Orange', 'Watermelon', 'Cherry'};
+for(Integer i=0; i<listFriutNames.size(); i++){
+    System.debug('Traditional Fruit Name Set Example: '+listFriutNames[i]);
+}
