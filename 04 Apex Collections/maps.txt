@@ -1,0 +1,5 @@
+- Maps are collections that store data in key-value pairs
+- Keys are unique, ensuring each value is easily identifiable
+- Ideal situation where quick data retrieval is essential
+- Useful for maintaining associations between data elements
+- Ensures data handling efficiency in complex application
