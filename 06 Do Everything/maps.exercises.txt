@@ -26,3 +26,8 @@ mapReceipt.put('Bread', 1);
 mapReceipt.put('Chicken', 1);
 
 System.debug('Check mapReceipt: '+mapReceipt);
+
+System.debug('Check mapReceipt size: '+mapReceipt.size());
+System.debug('Check mapReceipt isEmpty: '+mapReceipt.isEmpty());
+System.debug('Check mapReceipt keyset: '+mapReceipt.keySet());
+System.debug('Check mapReceipt values: '+mapReceipt.values());
