@@ -1,0 +1,28 @@
+Map<String, Decimal> mapStudentAge = new Map<String, Decimal>();
+System.debug('Check mapStudentAge: '+mapStudentAge);
+
+mapStudentAge.put('Ann', 25);
+mapStudentAge.put('Mubi', 29);
+mapStudentAge.put('Alex', 45);
+mapStudentAge.put('Alex', 55);
+
+System.debug('Check mapStudentAge: '+mapStudentAge);
+
+// Get
+Decimal ageValue = mapStudentAge.get('Alex');
+System.debug('Check Alex Age: '+ageValue);
+
+//m2
+Map<String, Decimal> mapStudentAge2 = new Map<String, Decimal>{'Sally'=> 13, 'Alex'=>45};
+mapStudentAge2.put('Dan', 25);
+System.debug('Check mapStudentAge2: '+mapStudentAge2);
+
+
+Map<String, Decimal> mapReceipt = new Map<String, Decimal>();
+mapReceipt.put('Cheese', 1);
+mapReceipt.put('Chicken Soup', 3);
+mapReceipt.put('Pizza', 2);
+mapReceipt.put('Bread', 1);
+mapReceipt.put('Chicken', 1);
+
+System.debug('Check mapReceipt: '+mapReceipt);
