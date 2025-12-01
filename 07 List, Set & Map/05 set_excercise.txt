@@ -1,0 +1,11 @@
+Set<String> setA = new Set<String>{'Leel', 'Naserian', 'Oleken', 'Saitoti', 'Enkai'};
+System.debug('setA: ' + setA);
+Set<String> setB = new Set<String>{'Saitoti', 'Oleken', 'Taurai', 'Enkai', 'Nashipai'};
+System.debug('setB: ' + setB);
+
+// names in both sets
+Set<String> intersection = new Set<String>(setA); // make a copy of setA
+intersection.retainAll(setB); // keep only elements also in setB
+
+// Display the intersection
+System.debug('Names in both sets: ' + intersection);
