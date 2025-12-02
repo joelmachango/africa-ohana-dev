@@ -47,3 +47,14 @@ public class AccountCRUD {
         accountIds.clear(); // Clear stored IDs
     }
 }
+
+
+//Test:
+AccountCRUD crud = new AccountCRUD();
+
+// Create, Read, Update, Delete
+crud.createAccounts();
+crud.readAccounts();
+crud.updateAccounts();
+crud.readAccounts();
+crud.deleteAccounts();
