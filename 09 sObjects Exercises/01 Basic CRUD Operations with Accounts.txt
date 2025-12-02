@@ -1,0 +1,60 @@
+public class AccountCRUD {
+
+    // Store created account IDs
+    private List<Id> accountIds = new List<Id>();
+
+    // CREATE 3 Accounts
+    public void createAccounts() {
+        List<Account> newAccounts = new List<Account>{
+            new Account(Name='Account One'),
+            new Account(Name='Account Two'),
+            new Account(Name='Account Three')
+        };
+        insert newAccounts;
+
+        // Store their IDs
+        for (Account a : newAccounts) {
+            accountIds.add(a.Id);
+        }
+
+        System.debug('Created Accounts: ' + accountIds);
+    }
+
+    // READ Accounts
+    public List<Account> readAccounts() {
+        List<Account> accounts = [SELECT Id, Name FROM Account WHERE Id IN :accountIds];
+        System.debug('Accounts: ' + accounts);
+        return accounts;
+    }
+
+    // UPDATE Accounts
+    public void updateAccounts() {
+        List<Account> accountsToUpdate = [SELECT Id, Name FROM Account WHERE Id IN :accountIds];
+        for (Account a : accountsToUpdate) {
+            a.Name += ' - Updated';
+        }
+        update accountsToUpdate;
+
+        System.debug('Accounts updated.');
+    }
+
+    // DELETE Accounts
+    public void deleteAccounts() {
+        List<Account> accountsToDelete = [SELECT Id FROM Account WHERE Id IN :accountIds];
+        delete accountsToDelete;
+
+        System.debug('Accounts deleted.');
+        accountIds.clear(); // Clear stored IDs
+    }
+}
+
+
+//Test:
+AccountCRUD crud = new AccountCRUD();
+
+// Create, Read, Update, Delete
+crud.createAccounts();
+crud.readAccounts();
+crud.updateAccounts();
+crud.readAccounts();
+crud.deleteAccounts();

@@ -1,0 +1,32 @@
+// Create Account
+Account acc = new Account(Name = 'Sally Ohana Corporation');
+insert acc;
+
+// Create Contacts related to the Account
+List<Contact> contacts = new List<Contact>{
+    new Contact(FirstName='Kamau', LastName='Njoroge', AccountId=acc.Id, Phone='111-111-1111'),
+    new Contact(FirstName='Oti', LastName='Juma', AccountId=acc.Id, Phone='222-222-2222'),
+    new Contact(FirstName='Kangethe', LastName='Muchoki', AccountId=acc.Id, Phone='333-333-3333')
+};
+insert contacts;
+
+// Query Account with related Contacts
+Account queriedAcc = [
+    SELECT Id, Name, (SELECT Id, FirstName, LastName, Phone FROM Contacts)
+    FROM Account
+    WHERE Id = :acc.Id
+];
+
+// Display Account and Contacts
+System.debug('Account: ' + queriedAcc.Name);
+for (Contact c : queriedAcc.Contacts) {
+    System.debug('Contact: ' + c.FirstName + ' ' + c.LastName + ', Phone: ' + c.Phone);
+}
+
+// Update Contacts phone numbers in bulk
+for (Contact c : queriedAcc.Contacts) {
+    c.Phone = '999-999-9999';
+}
+update queriedAcc.Contacts;
+
+System.debug('Contacts phone numbers updated.');
