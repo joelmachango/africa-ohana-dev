@@ -1,0 +1,66 @@
+public class Student {
+    
+    // Private attributes
+    private String name;
+    private Integer age;
+    private String grade;
+    
+    // Constructor 
+    public Student(String name, Integer age, String grade) {
+        this.name = name;
+        this.age = age;
+        this.grade = grade;
+    }
+    
+    // PUBLIC => Getters and Setters
+    
+    // name
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String newName) {
+        this.name = newName;
+    }
+    
+    // age
+    public Integer getAge() {
+        return age;
+    }
+    
+    public void setAge(Integer newAge) {
+        this.age = newAge;
+    }
+    
+    // grade
+    public String getGrade() {
+        return grade;
+    }
+    
+    public void setGrade(String newGrade) {
+        this.grade = newGrade;
+    }
+}
+
+
+/**
+
+// Create a Student object
+Student s1 = new Student('Wanjiku', 16, 'A');
+
+// Access attributes using getters
+System.debug('Name: ' + s1.getName());
+System.debug('Age: ' + s1.getAge());
+System.debug('Grade: ' + s1.getGrade());
+
+// Update attributes using setters
+s1.setName('Kamau');
+s1.setAge(17);
+s1.setGrade('A+');
+
+// Verify updates
+System.debug('Updated Name: ' + s1.getName());
+System.debug('Updated Age: ' + s1.getAge());
+System.debug('Updated Grade: ' + s1.getGrade());
+
+**/

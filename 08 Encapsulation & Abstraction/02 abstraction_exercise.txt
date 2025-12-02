@@ -1,0 +1,33 @@
+public class Car {
+    
+    private void startEngine() {
+        System.debug('Engine started.');
+    }
+    
+    private void stopEngine() {
+        System.debug('Engine stopped.');
+    }
+    
+    private void drive() {
+        System.debug('Car is now driving.');
+    }
+    
+    // Public method that abstracts the car operation
+    public void operateCar() {
+        startEngine();   // Start engine
+        drive();         // Drive the car
+        stopEngine();    // Stop engine
+    }
+}
+
+
+/**
+Car myCar = new Car();
+
+// Operate the car using the public method
+myCar.operateCar();
+
+//Engine started.
+//Car is now driving.
+//Engine stopped.
+**/

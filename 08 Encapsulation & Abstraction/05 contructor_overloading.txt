@@ -1,0 +1,30 @@
+public class Book {
+    
+    public String title;
+    public String author;
+    public Integer yearPublished;
+    
+    // title and author
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        this.yearPublished = null;
+    }
+    
+    // title, author, and yearPublished
+    public Book(String title, String author, Integer yearPublished) {
+        // Call the first constructor to set title and author
+        this(title, author); 
+        // Then set yearPublished
+        this.yearPublished = yearPublished;
+    }
+    
+    // Method to display book details
+    public void displayBookDetails() {
+        System.debug('Title: ' + title);
+        System.debug('Author: ' + author);
+        if (yearPublished != null) {
+            System.debug('Year Published: ' + yearPublished);
+        }
+    }
+}

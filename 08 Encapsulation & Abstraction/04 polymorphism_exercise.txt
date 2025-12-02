@@ -1,0 +1,55 @@
+public virtual class Shape {
+    
+    // Virtual method to calculate area
+    public virtual Decimal calculateArea() {
+        return 0; // default
+    }
+}
+
+public class Circle extends Shape {
+    
+    private Decimal radius;
+    
+    public Circle(Decimal radius) {
+        this.radius = radius;
+    }
+    
+    // Override calculateArea
+    public override Decimal calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class Rectangle extends Shape {
+    
+    private Decimal length;
+    private Decimal width;
+    
+    public Rectangle(Decimal length, Decimal width) {
+        this.length = length;
+        this.width = width;
+    }
+    
+    // Override calculateArea
+    public override Decimal calculateArea() {
+        return length * width;
+    }
+}
+
+
+// Utility class to print areas
+public class Printer {
+    
+    public static void printAreas(List<Shape> shapes) {
+        for (Shape s : shapes) {
+            System.debug('Area: ' + s.calculateArea());
+        }
+    }
+}
+
+/**
+List<Shape> shapes = new List<Shape>();
+
+shapes.add(new Circle(15));
+shapes.add(new Rectangle(7, 6));
+**/

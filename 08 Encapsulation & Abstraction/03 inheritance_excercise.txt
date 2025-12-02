@@ -1,0 +1,66 @@
+public virtual class Person {
+    
+    // Attributes
+    private String name;
+    private Integer age;
+    
+    // Constructor
+    public Person(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // Getter and Setter for name
+    public String getName() {
+        return name;
+    }
+    public void setName(String n) {
+        name = n;
+    }
+    
+    // Getter and Setter for age
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer a) {
+        age = a;
+    }
+    
+    // Method to display details
+    public void displayDetails() {
+        System.debug('Name: ' + name);
+        System.debug('Age: ' + age);
+    }
+}
+
+public class Student extends Person {
+    
+    // Additional attribute
+    private String school;
+    
+    // Constructor
+    public Student(String name, Integer age, String school) {
+        super(name, age); // Call Person constructor
+        this.school = school;
+    }
+    
+    // Getter and Setter for school
+    public String getSchool() {
+        return school;
+    }
+    public void setSchool(String s) {
+        school = s;
+    }
+    
+    // Method to display student details including school
+    public void displayStudentDetails() {
+        displayDetails(); // Call Person method
+        System.debug('School: ' + school);
+    }
+}
+
+
+/**
+Student s1 = new Student('Wanjiku', 16, 'Tumutumu Girls');
+s1.displayStudentDetails();
+**/
