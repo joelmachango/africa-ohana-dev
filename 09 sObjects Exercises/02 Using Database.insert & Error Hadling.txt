@@ -1,0 +1,27 @@
+public class OpportunityHandler {
+
+    public static void insertOpportunities() {
+
+        List<Opportunity> opps = new List<Opportunity>{
+            new Opportunity(Name='Opportunity 1', CloseDate=Date.today(), StageName='Prospecting'),
+            new Opportunity(Name='Opportunity 2', CloseDate=Date.today(), StageName='Prospecting'),
+            // This record will fail: missing required StageName
+            new Opportunity(Name='Opportunity 3', CloseDate=Date.today())
+        };
+
+        // Insert with partial success
+        Database.SaveResult[] results = Database.insert(opps, false);
+
+        // Check results and handle errors
+        for (Integer i = 0; i < results.size(); i++) {
+            if (results[i].isSuccess()) {
+                System.debug('Successfully inserted Opportunity: ' + opps[i].Name + ', Id: ' + results[i].getId());
+            } else {
+                System.debug('Failed to insert Opportunity: ' + opps[i].Name);
+                for (Database.Error err : results[i].getErrors()) {
+                    System.debug('Error message: ' + err.getMessage());
+                }
+            }
+        }
+    }
+}
