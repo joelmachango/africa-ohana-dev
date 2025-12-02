@@ -1,0 +1,38 @@
+public class GenericInserter {
+
+    // Method to insert any list of sObjects
+    public static void insertRecords(List<sObject> records) {
+        if (records == null || records.isEmpty()) {
+            System.debug('No records to insert.');
+            return;
+        }
+
+        try {
+            insert records;
+            System.debug(records.size() + ' records inserted successfully.');
+        } catch (DmlException e) {
+            System.debug('Error inserting records: ' + e.getMessage());
+        }
+    }
+}
+
+
+// Accounts
+List<Account> accounts = new List<Account>{
+    new Account(Name='Generic Account 1'),
+    new Account(Name='Generic Account 2')
+};
+GenericInserter.insertRecords((List<sObject>)accounts);
+
+// Contacts
+List<Contact> contacts = new List<Contact>{
+    new Contact(FirstName='Test', LastName='Wan', AccountId=null),
+    new Contact(FirstName='Iwanna', LastName='Test', AccountId=null)
+};
+GenericInserter.insertRecords((List<sObject>)contacts);
+
+// Opportunities
+List<Opportunity> opps = new List<Opportunity>{
+    new Opportunity(Name='Opportunity 1', CloseDate=Date.today(), StageName='Prospecting')
+};
+GenericInserter.insertRecords((List<sObject>)opps);
