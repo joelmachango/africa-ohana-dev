@@ -20,6 +20,7 @@ LIMIT Limit Number
 
 - Reserve characters and escaping in SOQL
 
+SOQL Aggegate Functions and Working Results in Apex.
 SELECT COUNT(Id) noAccounts, SUM(AnnualRevenue) totalRevenue FROM Account 
 
 List<AggregateResult> lstResults=[SELECT COUNT(Id) noAccounts, SUM(AnnualRevenue) totalRevenue FROM Account];
@@ -32,3 +33,9 @@ for (AggregateResult resultObj : lstResults) {
     System.debug('Count '+count);
     System.debug('Revenue '+revenue);
 }
+
+- Aggegate Functions are common functions as:
+COUNT(), SUM(), AVG(), MIN(), MAX() Used to calculate directly in SOQL queries.
+
+- Handling Aggregate Results in Apex: Aggregate results are not retured as sObject but as AggregateResult objects.
+eg. Using AggregateResult to extract calculated data in Apex.
