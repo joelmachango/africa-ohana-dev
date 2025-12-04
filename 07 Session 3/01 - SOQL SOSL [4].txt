@@ -8,3 +8,6 @@ SOSL - Salesforce Object Search Language
 When to use each?
 - Use SOQL for targeted queries to retrieve specific data from Salesforce objects (eg. finding all accounts starting with "Tech")
 - Use SOSL for broader searches accross multiple objects, like a search engine (eg. searching for "Tech" across Accounts, Contacts and Leads)
+
+SELECT Name, Industry, AnnualRevenue FROM Account WHERE AnnualRevenue > 500000
+FIND {Edge} IN ALL FIELDS RETURNING Account(Id, Name), Contact(Id, FirstName, LastName, Email)
