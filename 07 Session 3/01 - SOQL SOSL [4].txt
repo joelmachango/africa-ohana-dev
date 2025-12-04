@@ -1,0 +1,6 @@
+SOQL - Salesforce Object Query Language
+    - It retrieves records from Slaesforce objects, similar to SQL in databases.
+
+SOSL - Salesforce Object Search Language 
+    - A Search-based query language.
+    - Performs full-text searches accross multiple Salesforce projects.
