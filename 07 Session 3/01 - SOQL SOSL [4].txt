@@ -4,3 +4,7 @@ SOQL - Salesforce Object Query Language
 SOSL - Salesforce Object Search Language 
     - A Search-based query language.
     - Performs full-text searches accross multiple Salesforce projects.
+
+When to use each?
+- Use SOQL for targeted queries to retrieve specific data from Salesforce objects (eg. finding all accounts starting with "Tech")
+- Use SOSL for broader searches accross multiple objects, like a search engine (eg. searching for "Tech" across Accounts, Contacts and Leads)
