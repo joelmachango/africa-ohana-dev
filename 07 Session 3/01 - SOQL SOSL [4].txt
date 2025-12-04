@@ -11,3 +11,11 @@ When to use each?
 
 SELECT Name, Industry, AnnualRevenue FROM Account WHERE AnnualRevenue > 500000
 FIND {Edge} IN ALL FIELDS RETURNING Account(Id, Name), Contact(Id, FirstName, LastName, Email)
+
+SELECT fields
+FROM objects
+WHERE condition
+ORDER BY Field ASC/DESC
+LIMIT Limit Number
+
+- Reserve characters and escaping in SOQL
