@@ -19,3 +19,16 @@ ORDER BY Field ASC/DESC
 LIMIT Limit Number
 
 - Reserve characters and escaping in SOQL
+
+SELECT COUNT(Id) noAccounts, SUM(AnnualRevenue) totalRevenue FROM Account 
+
+List<AggregateResult> lstResults=[SELECT COUNT(Id) noAccounts, SUM(AnnualRevenue) totalRevenue FROM Account];
+System.debug('AggregateResult '+lstResults);
+
+for (AggregateResult resultObj : lstResults) {
+    Integer count = (Integer)resultObj.get('noAccounts');
+    Decimal revenue = (Decimal)resultObj.get('totalRevenue');
+    
+    System.debug('Count '+count);
+    System.debug('Revenue '+revenue);
+}
