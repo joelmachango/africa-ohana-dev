@@ -39,3 +39,16 @@ COUNT(), SUM(), AVG(), MIN(), MAX() Used to calculate directly in SOQL queries.
 
 - Handling Aggregate Results in Apex: Aggregate results are not retured as sObject but as AggregateResult objects.
 eg. Using AggregateResult to extract calculated data in Apex.
+
+GROUPING AND FILTERING AGGREGATE RESULTS WITH GROUP BY AND HAVING
+GROUP BY:
+- Group records based on specified fields.
+- Used to Aggregatedata by categories or groups.
+
+HAVING Clause:
+- Used to filter aggregated results.
+- Work like the WHERE clause but applies conditions to grouped records.
+
+Difference between WHERE and HAVING:
+- WHERE filters records before aggregation.
+- HAVING filters records after aggregation.
