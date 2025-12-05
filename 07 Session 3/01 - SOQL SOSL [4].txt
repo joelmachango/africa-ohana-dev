@@ -52,3 +52,10 @@ HAVING Clause:
 Difference between WHERE and HAVING:
 - WHERE filters records before aggregation.
 - HAVING filters records after aggregation.
+
+
+SELECT Industry, COUNT(Id) noAccounts, SUM(AnnualRevenue) totalRevenue 
+FROM Account 
+WHERE AnnualRevenue > 100000
+GROUP BY Industry 
+HAVING SUM(AnnualRevenue ) > 9000000
