@@ -66,3 +66,7 @@ Advanced SOQL in Apex Part 3: Relationships, Dynamic Queries, and Security
 
 1. Querying Parent records from Child Records
 SELECT FirstName, LastName, Account.Name, Account.Industry, Account.AnnualRevenue from Contact
+
+for (Contact contactObj : lstContacts) {    
+    System.debug('Contact FirstName '+contactObj.FirstName);
+}
