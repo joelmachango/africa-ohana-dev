@@ -135,3 +135,12 @@ RETURNING [objectsAndFields]:
 - It is optional. If not specified, the search results contain the IDs of all objects found.
 
 FIND {jon} IN NAME FIELDS RETURNING Account(Id, Name), Contact(FirstName, LastName)
+
+KEY SOSL Search Rules and Examples:
+- Exact Word Matching:
+    - SOSL only searches for terms that match the begining of words.
+
+- Wildcards Usage:
+    - * for zero or more characters
+    - ? for exactly one character
+    - Wildcards can be used at the middle or end of a term.
