@@ -110,3 +110,10 @@ SOQL Injection and How to Prevent It
 SOQL Injection Defences:
 - To prevent a SOQL injection attack, avoid using dynamic SOQl queries. Instead, use static queries and binding variables.
 - If dynamic SOQl is necessary, use escapeSingleQuotes() to sanitize user input.
+
+Mastering SOSL in Apex: Introduction, Syntax, and Best Practices
+================================================================
+Salesforce Object Search Language (SOSL):
+- A text-based search language that allows you to perform full-text searches accross multiple objects.
+Use Case:
+- Ideal for broad searches when you need to locate a specific term in various fields across different objects.
