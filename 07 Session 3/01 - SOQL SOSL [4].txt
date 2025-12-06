@@ -183,3 +183,12 @@ List<Contact> lstContacts = (List<Contact>)lstResults[1];
 for (Contact contactObj: lstContacts){
     System.debug('Check first name '+contactObj.FirstName);
 }
+
+- Use FIND with single quotes in Apex: FIND 'searchTerm'
+- SOSL query results in Apex are stored as a List of Lists (List<List<SObject>>).
+
+Accesing Results by Object Type:
+- Each list in the result corresponds to an object type specified in RETURNING.
+- Example:
+    - searchResults[0] contains Account records
+    - searchResults[1] contains Contact records
