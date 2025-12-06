@@ -1,0 +1,16 @@
+// scores list
+List<Integer> lstScores = new List<Integer>{
+    55, 45, 74, 99, 81, 62, 71, 89
+};
+
+// scores
+System.debug('lstScores: ' + lstScores);
+
+// sort
+lstScores.sort();
+System.debug('lstScores(Ascending): ' + lstScores);
+
+// highest -> last element
+Integer highestScore = lstScores[lstScores.size() - 1];
+System.debug('score(Highest): ' + lstScores[lstScores.size() - 1]);
+System.debug('score(Highest): ' + highestScore);

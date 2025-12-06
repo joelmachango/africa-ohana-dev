@@ -1,0 +1,10 @@
+// Duplicates
+List<String> employeeIds = new List<String>{
+    'EMP001', 'EMP002', 'EMP003', 'EMP002', 'EMP001', 'EMP004'
+};
+
+// Set to remove duplicates
+Set<String> uniqueIds = new Set<String>(employeeIds);
+
+// Unique IDs 
+System.debug('Unique Employee IDs: ' + uniqueIds);
