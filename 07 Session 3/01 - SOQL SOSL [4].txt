@@ -156,3 +156,15 @@ Single Words vs. Phrases in SOSL:
         - Words separated by spaces (e.g. FIND {Hope}) match any order in the text and do not need to be consecutive.
     - Exact Phrases:
         - Use double quotes for an exact phrase (eg. FIND {"The Hope"}), where words must appear together in the specified order.
+
+Filtering Results:
+- Use WHERE clause to narrow down results within each specified object.
+- Example: RETURNING Account(Name, Industry WHERE Industry = 'Apparel')
+
+Ordering Results:
+- Use ORDER BY to sort results for an object.
+- Example: RETURNING Account(Name, Industry ORDER BY Name)
+
+Limiting Results:
+- Use LIMIT to restrict the number of results rturned for an object.
+- Example: RETURNING Account(Name, Industry LIMIT 10)
