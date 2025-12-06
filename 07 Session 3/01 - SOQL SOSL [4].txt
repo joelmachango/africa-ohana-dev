@@ -78,3 +78,6 @@ for (Contact contactObj : lstContacts) {
 2. Querying Child records from Patent Records
 - Use subqueries to retreive child recprds related to a parent
 SELECT Name, (SELECT FirstName, LastName FROM Contacts) FROM Account
+
+custom:
+SELECT Name, (SELECT Name FROM Projects__r ) FROM Contact
