@@ -194,6 +194,7 @@ Accesing Results by Object Type:
     - searchResults[1] contains Contact records
 
 SOQL & SOSL Best Practices:
+====
 
 SOQL
 ====
