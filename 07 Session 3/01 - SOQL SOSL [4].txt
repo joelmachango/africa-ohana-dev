@@ -144,3 +144,9 @@ KEY SOSL Search Rules and Examples:
     - * for zero or more characters
     - ? for exactly one character
     - Wildcards can be used at the middle or end of a term.
+
+Logical Operators:
+    - Group terms with AND, OR and parentheses for compound search criteria.
+
+Case-Insensitive Searches:
+    - SOSL is case - insensitive; the capitalization of the search term doesn't affect the results.
