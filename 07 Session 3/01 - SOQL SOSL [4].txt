@@ -117,3 +117,21 @@ Salesforce Object Search Language (SOSL):
 - A text-based search language that allows you to perform full-text searches accross multiple objects.
 Use Case:
 - Ideal for broad searches when you need to locate a specific term in various fields across different objects.
+
+FIND {searchTearm} IN [searchScope] RETURNING [objectsAndFields]
+- FIND {searchTearm}: This search term is what SOSL will look for accross the specified fields.
+
+IN [searchScope]:
+- The IN clause specifies where to search within the records.
+- Common Scopes are:
+    - ALL FIELDS
+    - NAME FIELDS
+    - EMAIL FIELDS
+- It is optional. It is the scope of the fields to search. If not specified, the default search scope is all fields.
+
+RETURNING [objectsAndFields]:
+- The RETURNING clause specifies which object and fields to return in the results.
+- You can list multiple objects, and for eaaach oject, specify the fields to retieve.
+- It is optional. If not specified, the search results contain the IDs of all objects found.
+
+FIND {jon} IN NAME FIELDS RETURNING Account(Id, Name), Contact(FirstName, LastName)
