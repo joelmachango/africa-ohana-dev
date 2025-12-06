@@ -192,3 +192,19 @@ Accesing Results by Object Type:
 - Example:
     - searchResults[0] contains Account records
     - searchResults[1] contains Contact records
+
+SOQL & SOSL Best Practices:
+
+SOQL
+====
+- Optimize Filters: Use indexed fields in the WHERE clause to improve performance.
+- Limit and Offset: Always use LIMIT to control the number of the returned records.
+- Avoid Nested Queries: Limit the use of deeply nested relationship queries to avoid hitting limits.
+- Use SELECT Specific Fields.
+
+SOSL
+====
+- Use Exact Words: SOSL works best when using complete words. Avoid partial words unless using wildscards.
+- Limit Returned Objects: Specify only necessary objects in the RETURNING clause to keep results focused.
+- Combine Logical Operators: Use AND, OR and wildscards for more flexible search terms.
+- Optimize for User Search: Consider indexing fields often searched by users to enhance search speed.
