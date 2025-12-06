@@ -85,6 +85,8 @@ SELECT Name, (SELECT Name FROM Projects__r ) FROM Contact
 List<Account> lstAccounts=[SELECT Name, (SELECT FirstName, LastName FROM Contacts) FROM Account];
 System.debug('lstAccounts '+lstAccounts);
 
-for (Account accountObj : lstAccounts) {    
-    System.debug('Account Name '+accountObj.Name);
+for (Account accountObj : lstAccounts) {     
+    for(Contact contactObj: accountObj.Contact){
+        System.debug('FirstName '+contactObj.FirstName);
+    }
 }
