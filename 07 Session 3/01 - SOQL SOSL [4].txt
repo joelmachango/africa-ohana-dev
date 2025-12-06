@@ -90,3 +90,6 @@ for (Account accountObj : lstAccounts) {
         System.debug('FirstName '+contactObj.FirstName);
     }
 }
+
+Quering Multi-Level Parent-Child Relationship on SOQL
+- In API version 58.0 and later, SOQL supports upto five levels of parent-child relationships.
