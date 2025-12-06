@@ -99,3 +99,14 @@ What is Dynamic SOQL?
 - Dynamic SOQL allows you to build and execute queries at runtime, using strings in Apex.
 - It's useful when query conditions are variable or not known until runtime.
 - Provides flexibility to dynamically contruct complex queries based on user input or application logic.
+
+SOQL Injection and How to Prevent It
+------------------------------------
+- While dynamic SOQL adds flexibility, it also introduces potential security risks like SOQl injection.
+- Dynamic SOQL queries are built as strings, which can be vulnerable to manipulation if not properly sanitized.
+  - Atteckers manipulate user input to change the behaviour of a SOQl query.
+  - It can lead to anauthorized data access, data corruption, or deletion.
+
+SOQL Injection Defences:
+- To prevent a SOQL injection attack, avoid using dynamic SOQl queries. Instead, use static queries and binding variables.
+- If dynamic SOQl is necessary, use escapeSingleQuotes() to sanitize user input.
