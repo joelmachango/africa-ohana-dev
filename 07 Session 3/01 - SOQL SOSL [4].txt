@@ -168,3 +168,18 @@ Ordering Results:
 Limiting Results:
 - Use LIMIT to restrict the number of results rturned for an object.
 - Example: RETURNING Account(Name, Industry LIMIT 10)
+
+Using SOSL in Apex
+List<list<SObject>> lstResults = [FIND 'Gen' IN NAME FIELDS RETURNING Account(Id, Name), Contact(Id, FirstName, LastName)];
+System.debug('Check size '+lstResults.size());
+
+System.debug('Check first list '+lstResults[0]);
+System.debug('Check first list '+lstResults[1]);
+
+//typecast
+List<Account> lstAccounts = (List<Account>)lstResults[0];
+List<Contact> lstContacts = (List<Contact>)lstResults[1];
+
+for (Contact contactObj: lstContacts){
+    System.debug('Check first name '+contactObj.FirstName);
+}
