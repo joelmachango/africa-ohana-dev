@@ -150,3 +150,9 @@ Logical Operators:
 
 Case-Insensitive Searches:
     - SOSL is case - insensitive; the capitalization of the search term doesn't affect the results.
+
+Single Words vs. Phrases in SOSL:
+    - Single Words:
+        - Words separated by spaces (e.g. FIND {Hope}) match any order in the text and do not need to be consecutive.
+    - Exact Phrases:
+        - Use double quotes for an exact phrase (eg. FIND {"The Hope"}), where words must appear together in the specified order.
