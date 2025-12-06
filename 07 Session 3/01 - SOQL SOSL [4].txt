@@ -73,3 +73,8 @@ SELECT Name, Project__r.Name from ProjectTask__c
 for (Contact contactObj : lstContacts) {    
     System.debug('Contact FirstName '+contactObj.FirstName);
 }
+
+
+2. Querying Child records from Patent Records
+- Use subqueries to retreive child recprds related to a parent
+SELECT Name, (SELECT FirstName, LastName FROM Contacts) FROM Account
