@@ -93,3 +93,9 @@ for (Account accountObj : lstAccounts) {
 
 Quering Multi-Level Parent-Child Relationship on SOQL
 - In API version 58.0 and later, SOQL supports upto five levels of parent-child relationships.
+
+
+What is Dynamic SOQL?
+- Dynamic SOQL allows you to build and execute queries at runtime, using strings in Apex.
+- It's useful when query conditions are variable or not known until runtime.
+- Provides flexibility to dynamically contruct complex queries based on user input or application logic.
