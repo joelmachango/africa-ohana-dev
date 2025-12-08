@@ -140,3 +140,8 @@ trigger AccountTrigger on Account (before insert, after insert, before update, a
     }    
    
 }
+
+Why Use a Trigger Handler?
+- Seperation of concerns
+- Easier Maintainance
+- Scalability
