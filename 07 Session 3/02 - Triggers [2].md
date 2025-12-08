@@ -145,3 +145,36 @@ Why Use a Trigger Handler?
 - Seperation of concerns
 - Easier Maintainance
 - Scalability
+
+public class AccountTriggerHandler {
+    public static void handleBeforeInsert(List<Account> lstNewAccounts, Map<Id, Account> mapNewAccounts){
+        setInitialIndustry(lstNewAccounts);
+        setPriority(lstNewAccounts);
+    }
+    
+    public static void handleBeforeUpdate(List<Account> lstNewAccounts, List<Account> lstOldAccounts, Map<Id, Account> mapNewAccounts, Map<Id, Account> oldMapAccounts){
+      	validateAnnualRevenue(lstNewAccounts, oldMapAccounts);
+    }
+    
+    
+    ////////////////////// Start Private Methods ////////////////////////
+    private static void validateAnnualRevenue(List<Account> lstNewAccounts, Map<Id, Account> mapOldAccounts){
+        for (Account accountObj: lstNewAccounts) {
+            Account oldAccountObj = mapOldAccounts.get(accountObj.id);
+                
+            if (accountObj.AnnualRevenue<1000000 && accountObj.AnnualRevenue != oldAccountObj.AnnualRevenue && oldAccountObj.AnnualRevenue >= 1000000) {
+                accountObj.addError('Annual Revenue cannot be reduced below $1,000,000');
+            }  
+        }        
+    }
+        
+    private static void setInitialIndustry(List<Account> lstNewAccounts){
+        for (Account accountObj : lstNewAccounts) {
+            if (accountObj.Industry==null) {
+                accountObj.Industry='Technology';
+            } 
+        }
+    }
+    
+    private static void setPriority(List<Account> lstNewAccounts){}
+}
