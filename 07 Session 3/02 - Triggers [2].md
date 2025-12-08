@@ -44,3 +44,11 @@ trigger AccountTrigger on Account (before insert, after insert, before update) {
         }
     }    
 }
+
+ Part 2: Handlers, Switch Case, and Best Practices
+
+// Upsert:
+Account acc = new Account(Name='TestSalyCode');
+upsert acc;
+
+System.debug('Acc ID '+acc.Id);
