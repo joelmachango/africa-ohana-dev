@@ -3,6 +3,7 @@ trigger ProjectTrigger on Project__c (before insert, after insert) {
     if(Trigger.isBefore){
         
     } else if (Trigger.isAfter){
+        // AFTER INSERT: parent Project__c now has an Id
         if(Trigger.isInsert){
             List<Project_Task__c> tasksToCreate = new List<Project_Task__c>();
             
