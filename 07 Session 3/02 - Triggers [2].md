@@ -51,6 +51,15 @@ trigger AccountTrigger on Account (before insert, after insert, before update) {
 Account acc = new Account(Name='TestSalyCode');
 upsert acc;
 
+Project projObj = new Project__c (
+    Name__c ='CodeWithSaly Website Revamp Project'
+    Start_Date__c = Date.newInstance(2026, 1, 15),
+    End_Date__c = Date.newInstance(2026, 3, 30),
+    Description__c = 'A project focused on redesigning the CodeWithSaly platform, improving UI/UX, content structure, and performance.'
+);
+
+upsert projObj;
+
 System.debug('Acc ID '+acc.Id);
 
 // Simplify Triggers with Switch Statements
