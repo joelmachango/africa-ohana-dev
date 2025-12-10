@@ -1,11 +1,20 @@
-// Not Best Practice
 trigger ProjectTrigger on Project__c (before insert, after insert) {
     if(Trigger.isBefore){
+        if(Trigger.isInsert) {
+            Date today = Date.today();
+
+            // No Start date
+            for (Project__c proj : Trigger.new) {
+                if (proj.Start_Date__c == null) {
+                    proj.Start_Date__c = today;
+                }
+            }
+        }
         
     } else if (Trigger.isAfter){
-        // AFTER INSERT: parent Project__c now has an Id
         if(Trigger.isInsert){
             List<Project_Task__c> tasksToCreate = new List<Project_Task__c>();
+            //Date dateToday = Date.today();
             
             for(Project__c projObj: Trigger.new){
                 // For every new Project__c record, automatically create one Project_Task__c child record
@@ -18,7 +27,13 @@ trigger ProjectTrigger on Project__c (before insert, after insert) {
                 // Due date = Start date + 2 days
                 if (projObj.Start_Date__c != null){
                     koTask.Due_Date__c = projObj.Start_Date__c + 2;  
-                }   
+                } 
+                
+                // No Start date
+                //if (projObj.Start_Date__c == null) {
+                    // projObj.Start_Date__c = dateToday; 
+                    // koTask.Due_Date__c = dateToday + 2;
+                //}
                 
                 tasksToCreate.add(koTask);
             }
