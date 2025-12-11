@@ -1,54 +1,99 @@
 // https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_context_variables.htm
 // Not Best Practice
+/**
 trigger ProjectTaskTrigger on Project_Task__c (before insert, before update) {
+    Date today = Date.today();
+    
     if(Trigger.isBefore){
         if(Trigger.isInsert){
-            // BEFORE INSERT
-            for(Project_Task__c ptObj: Trigger.new) {
+            // BEFORE INSERT        
+            for(Project_Task__c task: Trigger.new) {
                 // Ensures Due_Date__c is in the future 
                 // Block the action if the date is Today or in the past
-                if(ptObj.Due_Date__c != null && ptObj.Due_Date__c <= Date.today()){
-                    ptObj.addError('The Due Date must be in the future.');
+                if(task.Due_Date__c != null && task.Due_Date__c <= today){
+                    task.addError('The Due Date must be in the future.');
                 }
                 
                 // Prevent setting isCompleted__c = true when inserting new Task 
-                if(ptObj.isCompleted__c == true) {
-                    ptObj.addError('A New Task cannot be Marked as Completed.');
+                if(task.isCompleted__c == true) {
+                    task.addError('A New Task cannot be Marked as Completed.');
                 }
             }            
         } else if (Trigger.isUpdate){
             // BEFORE UPDATE
-            Map<Id, Project_Task__c> oldMapObj = Trigger.oldMap;
-            
-            for(Project_Task__c ptObj: Trigger.new){
-                Project_Task__c oldRecord = oldMapObj.get(ptObj.id);
+            Map<Id, Project_Task__c> oldTasks = Trigger.oldMap;
+            System.debug('oldTasks Map: ' + oldTasks);
+          
+            for(Project_Task__c task: Trigger.new){
+                Project_Task__c oldTask = oldTasks.get(task.id);
+                
+                System.debug('Old Task: ' + oldTask);
+                System.debug('Old Priority: ' + oldTask.Priority__c);
+                System.debug('New Priority: ' + task.Priority__c);
+                
                 // Ensures Due_Date__c is in the future 
                 // Block the action if the date is Today or in the past
-                if(ptObj.Due_Date__c != null && ptObj.Due_Date__c <= Date.today()){
-                    ptObj.addError('The Due Date must be in the future.');
+                if(task.Due_Date__c != null && task.Due_Date__c <= today){
+                    task.addError('The Due Date must be in the future.');
                 }
                 // Automatically sets Status__c = 'Completed' if isCompleted__c is set to true during update
-                if(ptObj.isCompleted__c == true && oldRecord.isCompleted__c == false){
-                    ptObj.Status__c = 'Completed';                    
+                if(task.isCompleted__c == true && oldTask.isCompleted__c == false){
+                    task.Status__c = 'Completed';                    
+                }
+				// if Status becomes Completed, need to set isCompleted true - gap
+                if(oldTask.Status__c != 'Completed' && task.Status__c == 'Completed'){
+                    task.isCompleted__c = true;
                 }
                 // Prevent lowering priority: High → Medium/Low
-                if(oldRecord.Priority__c == 'High' && ptObj.Priority__c != 'High'){
-                    ptObj.addError('Priority cannot be lowered from High.');
+                if(oldTask.Priority__c == 'High' && task.Priority__c != 'High'){
+                    task.addError('Priority cannot be lowered from High.');
                 }
             }            
         }               
     } else if (Trigger.isAfter){}
-}
+}**/
 
-/**
-trigger ProjectTaskTrigger on Project_Task__c (before insert) {
+trigger ProjectTaskTrigger on Project_Task__c (before insert, before update) {
+    Date today = Date.today();
+    
     switch on Trigger.OperationType {
         when BEFORE_INSERT {
-            
+           for(Project_Task__c task: Trigger.new) {
+                // Ensures Due_Date__c is in the future 
+                // Block the action if the date is Today or in the past
+                if(task.Due_Date__c != null && task.Due_Date__c <= today){
+                    task.addError('The Due Date must be in the future.');
+                }
+                // Prevent setting isCompleted__c = true when inserting new Task 
+                if(task.isCompleted__c == true) {
+                    task.addError('A New Task cannot be Marked as Completed.');
+                }
+            }  
         }
         
         when BEFORE_UPDATE {
+            Map<Id, Project_Task__c> oldTasks = Trigger.oldMap;
             
+            for(Project_Task__c task: Trigger.new){
+                Project_Task__c oldTask = oldTasks.get(task.id);
+                // Ensures Due_Date__c is in the future 
+                // Block the action if the date is Today or in the past
+                if(task.Due_Date__c != null && task.Due_Date__c <= today){
+                    task.addError('The Due Date must be in the future.');
+                }
+                // Automatically sets Status__c = 'Completed' if isCompleted__c is set to true during update
+                if(task.isCompleted__c == true && oldTask.isCompleted__c == false){
+                    task.Status__c = 'Completed';                    
+                }
+                // if Status becomes Completed, need to set isCompleted true - [gap]
+                if(oldTask.Status__c != 'Completed' && task.Status__c == 'Completed'){
+                    task.isCompleted__c = true;
+                }
+                // Prevent lowering priority: High → Medium/Low
+                if(oldTask.Priority__c == 'High' && task.Priority__c != 'High'){
+                    task.addError('Priority cannot be lowered from High.');
+                }
+            } 
         }
     }
-}**/
+}
