@@ -31,9 +31,12 @@ trigger ProjectTrigger on Project__c (before insert, after insert) {
                 }            
                 
                 tasksToCreate.add(task);
-            }
+            }           
             
-            insert tasksToCreate;
+            // Only insert if the list has tasks
+            if (!tasksToCreate.isEmpty()) {
+                insert tasksToCreate;
+            }
         }
     }
 }
