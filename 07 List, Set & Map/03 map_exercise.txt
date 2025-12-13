@@ -1,0 +1,14 @@
+// Map => key, country and value, capital
+Map<String, String> countryCapital = new Map<String, String>();
+
+// Add country–capital pairs
+countryCapital.put('Kenya', 'Nairobi');
+countryCapital.put('Uganda', 'Kampala');
+countryCapital.put('Tanzania', 'Dodoma');
+countryCapital.put('Ethiopia', 'Addis Ababa');
+countryCapital.put('Rwanda', 'Kigali');
+
+// Loop map and display country & capital
+for (String country : countryCapital.keySet()) {
+    System.debug('Country: ' + country + ' | Capital: ' + countryCapital.get(country));
+}

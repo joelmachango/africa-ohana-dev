@@ -1,0 +1,102 @@
+List<String> favMovies = new List<String>{'The Lion King', 'The Prince of Egypt', 'Aladdin', 'Shrek', 'Super Henedi'};
+System.debug('favMovies '+favMovies);
+// do while
+Integer i = 0;
+do {
+   System.debug('favMovies(do while) '+favMovies[i]); 
+   i++;
+} while (i < favMovies.size());
+
+// while
+Integer j = 0;
+while(j < favMovies.size()){
+    System.debug('favMovies(while) '+favMovies[j]); 
+    j++;
+}
+
+// traditional for loop
+for(Integer i = 0; i <favMovies.size(); i++){
+   System.debug('favMovies(traditional) '+favMovies[i]); 
+}
+// for loop
+for(String name: favMovies){
+    System.debug('favMovies(for loop) '+name);
+}
+// SOQL For Loop
+//script to add movies
+/**
+List<Movie__c> movies = new List<Movie__c>{
+    new Movie__c(
+        Name = 'The Lion King',
+        Genre__c = 'Animation',
+        Release_Date__c = Date.newInstance(1994, 6, 15),
+        Rating__c = 8.5,
+        Description__c = 'Classic Disney animated film about Simba.'
+    ),
+    new Movie__c(
+        Name = 'The Prince of Egypt',
+        Genre__c = 'Animation',
+        Release_Date__c = Date.newInstance(1998, 12, 18),
+        Rating__c = 7.1,
+        Description__c = 'Epic animated musical telling the story of Moses.'
+    ),
+    new Movie__c(
+        Name = 'Aladdin',
+        Genre__c = 'Animation',
+        Release_Date__c = Date.newInstance(1992, 11, 25),
+        Rating__c = 8.0,
+        Description__c = 'Disney adventure featuring Aladdin and Genie.'
+    ),
+    new Movie__c(
+        Name = 'Shrek',
+        Genre__c = 'Comedy',
+        Release_Date__c = Date.newInstance(2001, 4, 22),
+        Rating__c = 7.9,
+        Description__c = 'DreamWorks animated comedy about Shrek and Donkey.'
+    ),
+    new Movie__c(
+        Name = 'Super Henedi',
+        Genre__c = 'Comedy',
+        Release_Date__c = Date.newInstance(2007, 6, 1),
+        Rating__c = 6.0,
+        Description__c = 'Egyptian comedy film with Mohamed Henedi.'
+    )
+};
+insert movies;
+System.debug('Inserted ' + movies.size() + ' movies.');
+**/
+
+// single record per Iteration
+for (Movie__c movie : [
+    SELECT Id, Name, Genre__c, Release_Date__c, Rating__c
+    FROM Movie__c
+    ORDER BY Release_Date__c DESC
+    LIMIT 5
+]) {
+    System.debug('Movie: ' + movie.Name + 
+                 ', Genre: ' + movie.Genre__c + 
+                 ', Release Date: ' + movie.Release_Date__c);
+}
+
+// batch mode
+for (List<Movie__c> movieBatch : [
+    SELECT Id, Name, Genre__c, Release_Date__c, Rating__c
+    FROM Movie__c
+    ORDER BY Release_Date__c DESC
+    LIMIT 5
+]) {
+    System.debug('Processing batch of size: ' + movieBatch.size());
+
+    for (Movie__c m : movieBatch) {
+        System.debug('Movie: ' + m.Name);
+    }
+}
+
+
+
+
+
+   
+
+
+    

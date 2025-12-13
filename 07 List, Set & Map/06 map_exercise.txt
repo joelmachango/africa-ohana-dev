@@ -1,0 +1,21 @@
+// Employee ID → Name
+Map<String, String> empMap = new Map<String, String>{
+    'EMP001' => 'Wanjiku',
+    'EMP002' => 'Kamau',
+    'EMP003' => 'Mwangi',
+    'EMP004' => 'Njeri',
+    'EMP005' => 'Waithira'
+};
+
+System.debug('Map: ' + empMap);
+
+// Invert the map (Name → Employee ID)
+Map<String, String> invertedMap = new Map<String, String>();
+
+for (String empId : empMap.keySet()) {
+    String empName = empMap.get(empId);
+    invertedMap.put(empName, empId);
+}
+
+// Display the inverted map
+System.debug('Inverted Map (Name → ID): ' + invertedMap);
